@@ -8,9 +8,10 @@ The data was mostly clean, with a few expectations.
 - We had a few results where there was no phone identified. We elected to not drop those as they represented a small proportion of the overall dataset but instead encoded them as a separate category.
 - Didn't use the last ride date as that would have resulted in leakage
 - We needed to tranform the date into a usable form
+- Imputing data: we tried median and mean but they gave about the same result:
+![GitHub Logo](/images/Outliers_Freq.png)
 - Outliers: There were a couple of features that seemed to have outliers in the data. We tried removing these outliers from the training set, but it did not improve the results.
-
-
+![GitHub Logo](/images/Outliers_Freq.png)
 - Modeling We created a class that was capable of training on a variety of models. Hyperparameters were tuned with a random CV search.
 - Separately, we also trained a neural network. Results were similar to the other models
 ### Analysis & Results
