@@ -57,7 +57,7 @@ if __name__ == "__main__":
 
     # df = pd.read_csv('../data/churn.csv')
 
-    df = pd.read_csv('../data/churn_test.csv')
+    df = pd.read_csv('../data/churn_train.csv')
 
     # impute cols
     impute_cols = ['avg_rating_of_driver', 'avg_rating_by_driver']
@@ -86,4 +86,4 @@ if __name__ == "__main__":
     df = df[df['avg_dist'] < 50]
     df = df[df['trips_in_first_30_days'] < 30]
 
-    df.to_csv('cleaned_test_churn.csv')
+    df.to_csv('cleaned_train_churn.csv')
