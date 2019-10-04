@@ -10,7 +10,8 @@ The data was mostly clean, with a few expectations.
 - We needed to tranform the date into a usable form
 - Outliers: There were a couple of features that seemed to have outliers in the data. We tried removing these outliers from the training set, but it did not improve the results.
 ![outliers](images/Outliers_Freq.png)
-
+- Imputing: didn't have too manu missing values. Tried imputing with both mean and median and it didn't make much of a difference.
+![](Imputing_Missing_values.png)
 - Modeling We created a class that was capable of training on a variety of models. Hyperparameters were tuned with a random CV search.
 - Separately, we also trained a neural network. Results were similar to the other models
 ### Analysis & Results
