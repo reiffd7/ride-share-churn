@@ -21,6 +21,20 @@ def clean_it(data):
     df['avg_rating_of_driver']= imp.fit_transform(df[['avg_rating_of_driver']]).ravel()
     return df
 
+def impute(df, columns):
+    '''
+    columns = list or array of columns
+    '''
+
+    from sklearn.impute import SimpleImputer
+    imp = SimpleImputer(missing_values=np.nan, strategy='mean')
+
+    for col in columns:
+        df[col] = imp.fit_transform(df[[col]]).ravel()
+
+    return df
+
+
 
 
 
