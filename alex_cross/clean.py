@@ -48,10 +48,9 @@ def col_to_date(df, cols_to_convert):
 
 def impute(df, columns):
     '''
-    columns = list or array of columns
+    columns = list or array of columns in frame
     '''
 
-    from sklearn.impute import SimpleImputer
     imp = SimpleImputer(missing_values=np.nan, strategy='mean')
 
     for col in columns:
@@ -60,8 +59,15 @@ def impute(df, columns):
     return df
 
 
+def dummy_it(df, columns):
+    '''
+    columns = list or array of columns in dataframe
+    '''
+    df = pd.get_dummies(df, columns)
 
+    return df
 
+# def drop_outlier(df, columns, condition):
 
 if __name__ == "__main__":
 
