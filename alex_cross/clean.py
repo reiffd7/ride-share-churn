@@ -20,31 +20,6 @@ def clean_it(data):
     df['avg_rating_of_driver']= imp.fit_transform(df[['avg_rating_of_driver']]).ravel()
     return df
 
-def drop_cols(df, cols_to_drop):
-    '''
-    inputs: data frame
-            list of columns to drop
-
-    returns:
-            dataframe with dropped columns
-    '''
-    for col in cols_to_drop:
-        df.drop([col], axis=1, inplace=True)
-    return df
-
-
-def col_to_date(df, cols_to_convert):
-    '''
-    inputs: pandas data frame
-            list of columns to convert to datetime
-
-    returns:
-            dataframe with converted columns
-    '''
-    for col in cols_to_drop:
-        df.drop([col], axis=1, inplace=True)
-    return df
-
 
 def impute(df, columns):
     '''
@@ -107,4 +82,4 @@ if __name__ == "__main__":
     drop_cols = ['luxury_car_user_False', 'city_Winterfell', 'signup_date', 'last_trip_date', 'month']
     df = drop_col(df, drop_cols)
 
-    df.to_csv('cleaned_data.py')
+    df.to_csv('cleaned_data.csv')
