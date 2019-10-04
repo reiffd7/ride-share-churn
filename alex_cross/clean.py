@@ -26,7 +26,7 @@ def impute(df, columns):
     columns = list or array of columns in frame
     '''
 
-    imp = SimpleImputer(missing_values=np.nan, strategy='mean')
+    imp = SimpleImputer(missing_values=np.nan, strategy='median')
 
     for col in columns:
         df[col] = imp.fit_transform(df[[col]]).ravel()
@@ -57,7 +57,7 @@ if __name__ == "__main__":
 
     # df = pd.read_csv('../data/churn.csv')
 
-    df = pd.read_csv('../data/churn.csv')
+    df = pd.read_csv('../data/churn_test.csv')
 
     # impute cols
     impute_cols = ['avg_rating_of_driver', 'avg_rating_by_driver']
@@ -82,4 +82,8 @@ if __name__ == "__main__":
     drop_cols = ['luxury_car_user_False', 'city_Winterfell', 'signup_date', 'last_trip_date', 'month']
     df = drop_col(df, drop_cols)
 
-    df.to_csv('cleaned_data.csv')
+    # drop outliers
+    df = df[df['avg_dist'] < 50]
+    df = df[df['trips_in_first_30_days'] < 30]
+
+    df.to_csv('cleaned_test_churn.csv')
